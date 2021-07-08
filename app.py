@@ -9,10 +9,6 @@ from flask import (Flask, render_template, request, redirect, url_for, session)
 def login(name):
     return f"<h1> Hi : {name}<h1>"
 
-@app.route("/login")
-def Login():
-    return render_template('index.html')
-
 @app.route('/', methods=['GET', 'POST'])
 def main():
     if request.method == "POST":
@@ -20,10 +16,8 @@ def main():
         command = body.get("command")
         if command == "details":
             return Details(body)
-
         elif command == "calculator":
             return Calculator(body)
-
         elif command == 'lottery':
             return Lottery(body)
 
@@ -31,7 +25,6 @@ def main():
         print(request.args)
         if 'email' in request.args:
             name = request.args['email']
-
         if 'password' in request.args:
             passs = request.args['password']
             print("Your Email :",name,"\nYour Password :",passs, file=open('C:/Users/USER/Desktop/VSCODE/flaskk/details.txt', 'w'))  
@@ -45,14 +38,6 @@ def main():
 
 @app.route('/home')
 def home_page():
-        # print(request.args)
-        # if 'email' in request.args:
-        #         emnaill = request.args['email']
-        #         print(emnaill)
-    # for i in request.args:
-    #     var = request.args[i]
-    #     print(var)
-
     return render_template('home.html')
 
 
