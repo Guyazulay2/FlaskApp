@@ -23,8 +23,8 @@ def main():
 
     elif request.method == "GET":
         print(request.args)
-        if 'email' in request.args:
-            name = request.args['email']
+        if 'username' in request.args:
+            name = request.args['username']
         if 'password' in request.args:
             passs = request.args['password']
             print("Your Email :",name,"\nYour Password :",passs, file=open('C:/Users/USER/Desktop/VSCODE/flaskk/details.txt', 'w'))  
